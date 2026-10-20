@@ -1,0 +1,282 @@
+:root {
+  --border: #e5e7eb;
+  --muted: #6b7280;
+  --text: #111827;
+  --bg: #f9fafb;
+  --primary: #2563eb;
+  --danger: #dc2626;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #f3f4f6;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button.primary {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+button.primary:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+button.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.page-message {
+  padding: 32px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.error {
+  margin: 8px 0;
+  color: var(--danger);
+}
+
+.muted {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Layout */
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px 32px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.header-groups {
+  display: flex;
+  flex: 1;
+  gap: 6px;
+}
+
+.group-chip {
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: white;
+  font-size: 12px;
+}
+
+.user-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.week-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.week-nav h2 {
+  margin: 0 0 0 8px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Week view */
+
+.week {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  overflow: hidden;
+}
+
+.week-header,
+.week-body {
+  display: grid;
+  grid-template-columns: 56px repeat(7, 1fr);
+}
+
+.week-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.day-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.day-label strong {
+  color: var(--text);
+  font-size: 18px;
+}
+
+.day-label.today strong {
+  color: var(--primary);
+}
+
+.hour-label {
+  padding: 2px 6px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: right;
+}
+
+.day-column {
+  position: relative;
+  border-left: 1px solid var(--border);
+  background-image: linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+}
+
+.event-block {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 6px;
+  overflow: hidden;
+  border: none;
+  border-left: 3px solid var(--group-color);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--group-color) 14%, white);
+  text-align: left;
+  font-size: 12px;
+}
+
+.event-block:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--group-color) 24%, white);
+}
+
+.event-title,
+.event-meta {
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-title {
+  font-weight: 600;
+}
+
+.event-meta {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* Modal */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(17 24 39 / 40%);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(440px, calc(100vw - 32px));
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 20%);
+}
+
+.modal h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.modal label {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.modal input,
+.modal select,
+.modal textarea {
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+}
+
+.modal .row {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.spacer {
+  flex: 1;
+}
