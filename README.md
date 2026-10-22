@@ -85,36 +85,6 @@ The story behind it:
 4. She refreshed this morning and looked again: still nothing.
 5. She asked him; he said he added it. Now each one thinks the other is wrong, and Mom has stopped trusting the calendar.
 
-### What the Product Expert knows
-
-Share these freely when the candidate asks. They are facts about people and usage, not about the code.
-
-| Topic            | What you know |
-| ---------------- | ------------- |
-| Devices          | Mom and the son each use their own laptop. Mom keeps the calendar tab open all day. |
-| Timing           | The son added it yesterday afternoon. Mom checked in the evening and again this morning. |
-| Reloading        | Mom thinks she refreshed this morning. |
-| What the son did | He typed "Dentist", picked the time and saved. He didn't change anything else. |
-| Groups           | He doesn't know which group it went to. He didn't think about groups. |
-| Scale            | One family and one small team. A handful of open tabs, not thousands. |
-
-**Only say these if the candidate asks the right question:**
-
-| If they ask… | Answer |
-| ------------ | ------ |
-| Does anyone else see the event? | "Funny, the soccer coach mentioned seeing something about a dentist." |
-| Is this the first complaint? | "Mom has also said she only sees changes after she refreshes, but she thought that was normal." The coach's "kids show up at the old time" story fits here too. |
-| Why is the form the way it is? | "Someone asked us to remember the group, because they always add soccer stuff. Nobody expected it to send things to the wrong place." |
-
-### What "better" means to them
-
-These are outcomes the users would recognize, not features. Use them to answer "what does success look like?", and never to suggest how to get there.
-
-- When someone adds or changes something, the people it's meant for see it **within a few seconds**, without having to do anything. Instant isn't required.
-- Whoever adds an event **knows who will see it**.
-- People **never see** events that weren't meant for them.
-- Adding an event **stays quick**. Parents already complain about long forms.
-- Mom can **trust the calendar again** and stop double-checking by text.
 
 **Out of scope for this session:** mobile apps, offline use, login and permissions beyond groups, recurring events.
 
