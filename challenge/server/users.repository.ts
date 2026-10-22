@@ -13,10 +13,13 @@ export async function findUser(id: string): Promise<User | undefined> {
 
 export async function listGroupsForUser(userId: string): Promise<Group[]> {
   const { rows } = await pool.query<Group>(
-    `SELECT g.id, g.name, g.color
+    `SELECT g.id, g.name, g.color,
+            json_agg(json_build_object('id', u.id, 'name', u.name) ORDER BY u.name) AS members
        FROM groups g
-       JOIN group_members m ON m.group_id = g.id
-      WHERE m.user_id = $1
+       JOIN group_members m  ON m.group_id = g.id AND m.user_id = $1
+       JOIN group_members gm ON gm.group_id = g.id
+       JOIN users u          ON u.id = gm.user_id
+      GROUP BY g.id
       ORDER BY g.name`,
     [userId],
   );

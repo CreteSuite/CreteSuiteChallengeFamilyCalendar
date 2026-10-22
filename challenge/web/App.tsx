@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { addDays, isSameDay, startOfWeek } from '../shared/dates';
+import { addDays, formatTime, isSameDay, startOfWeek } from '../shared/dates';
 import type { CalendarEvent, EventInput } from '../shared/types';
 import { EventModal } from './components/EventModal';
 import { Header } from './components/Header';
@@ -17,7 +17,7 @@ function formatWeekRange(weekStart: Date): string {
 
 export function App() {
   const { userId, me, users, error } = useCurrentUser();
-  const { events, loading, error: eventsError, ...actions } = useEvents(userId);
+  const { events, loading, error: eventsError, lastSyncedAt, ...actions } = useEvents(userId);
   const [weekStart, setWeekStart] = useState(() => startOfWeek(new Date()));
   const [editing, setEditing] = useState<Editing>(null);
 
@@ -59,9 +59,12 @@ export function App() {
           </button>
           <h2>{formatWeekRange(weekStart)}</h2>
         </div>
-        <button className="primary" onClick={() => setEditing({ mode: 'create' })}>
-          + New event
-        </button>
+        <div className="toolbar-actions">
+          {lastSyncedAt && <span className="muted">Updated {formatTime(lastSyncedAt)}</span>}
+          <button className="primary" onClick={() => setEditing({ mode: 'create' })}>
+            + New event
+          </button>
+        </div>
       </div>
 
       {eventsError && <p className="error">Could not load events: {eventsError}</p>}

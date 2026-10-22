@@ -1,6 +1,7 @@
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useState, type CSSProperties, type FormEvent } from 'react';
 import { fromInputValues, toDateInputValue, toTimeInputValue } from '../../shared/dates';
 import type { CalendarEvent, EventInput, Me, User } from '../../shared/types';
+import { describeAudience } from '../audience';
 
 type Props = {
   event: CalendarEvent | null;
@@ -71,6 +72,7 @@ export function EventModal({ event, me, users, initialDate, onSave, onDelete, on
   }
 
   const author = event && users.find((user) => user.id === event.createdBy);
+  const group = me.groups.find((g) => g.id === groupId);
 
   return (
     <div className="modal-backdrop" onMouseDown={onClose}>
@@ -107,6 +109,11 @@ export function EventModal({ event, me, users, initialDate, onSave, onDelete, on
             ))}
           </select>
         </label>
+        {group && (
+          <p className="audience" style={{ '--group-color': group.color } as CSSProperties}>
+            Visible to: {describeAudience(group.members, me.user.id)}
+          </p>
+        )}
 
         <label>
           Notes

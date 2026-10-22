@@ -129,6 +129,12 @@ button.danger {
   gap: 8px;
 }
 
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .week-nav h2 {
   margin: 0 0 0 8px;
   font-size: 18px;
@@ -269,6 +275,24 @@ button.danger {
 .modal .row {
   display: flex;
   gap: 8px;
+}
+
+.audience {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: -6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.audience::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--group-color);
 }
 
 .modal-actions {
